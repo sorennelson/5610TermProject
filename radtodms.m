@@ -1,8 +1,7 @@
 function [deg, min, sec] = radtodms(x)
     theta = (180*x)/pi;
-    d = floor(theta);
-    m = (theta-d)*60;
-    deg = d;
+    deg = floor(theta);
+    m = (theta-deg)*60;
     min = floor(m);
-    sec = floor(((m-floor(m))*60));
+    sec = round(((m-min)*60), 4);
 end
