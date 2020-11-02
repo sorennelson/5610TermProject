@@ -15,3 +15,8 @@ for row=3:size(T,1)
     end
 end
 
+% Load in vehicles
+vehicles = [1, 40, 45, 55.0, 1, 111, 50, 58.0, -1, 1372.00];
+
+% Convert vehicles to cartesian
+cart_vehicles = vehtocart(vehicles, R, s);
