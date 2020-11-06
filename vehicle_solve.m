@@ -9,4 +9,5 @@ function [tV, xV] = vehicle_solve(satellites)
 % ---- Returns ----
 % tV - double - expected receival time from satellites
 % xV - 3x1 double vector - expected position of the vehicle on receival, in cartesian coordinates
+PI = 3.141592653589793116;
 end
