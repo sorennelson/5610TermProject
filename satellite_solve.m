@@ -33,6 +33,7 @@ while i < N
 end
 % If the calcation fails NaN is returned for each value
 if i == N
+    fprintf('Failure to calculate satallite position and time\n');
     tS = NaN;
     xS = NaN;
 end

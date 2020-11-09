@@ -44,17 +44,17 @@ function [x,fun_val]=gradient_method_backtracking(xSList, tSList, x0,s,alpha,bet
 % fun_val ... optimal function value
 x=x0;
 grad=G(xSList, tSList, x);
-fun_val=f(xSList, tSList, x);
+fun_val=F(xSList, tSList, x);
 iter=0;
 while ((norm(grad)>epsilon)&&(iter<100000000))
     iter=iter+1;
     t=s;
-    while (fun_val-f(xSList, tSList,x-t*grad)<alpha*t*norm(grad)^2)
+    while (fun_val-F(xSList, tSList,x-t*grad)<alpha*t*norm(grad)^2)
         t=beta*t;
     end
     x=x-t*grad;
-    fun_val=f(xSList, tSList, x);
-    grad=g(xSList, tSList, x);
+    fun_val=F(xSList, tSList, x);
+    grad=G(xSList, tSList, x);
 end
 if iter == 100000000
     fprintf('failed to converge\n');
