@@ -10,7 +10,7 @@ function [tV, xV] = vehicle_solve(xSList, tSList)
 % tV - double - expected receival time from satellites
 % xV - 3x1 double vector - expected position of the vehicle on receival, in cartesian coordinates
 c = 2.997924580000000000E+08;
-[xV, min] = gradient_method_backtracking(xSList, tSList, xSList(1), 10, 0.5, 0.5, 10^-5);
+[xV, mini] = gradient_method_backtracking(xSList, tSList, xSList(1), ceil(min(tSList)), 0.5, 0.5, 10^-3);
 sz = size(xSList);
 tV = 0;
 % Get average tV from each satellite
@@ -21,9 +21,6 @@ tV = tV / sz(2);
 end
 
 % Backtracking gradient descent method used to solve for xV
-% Some slight tweaks will need to be made to this
-% We'll also need to figure out which alpha,beta, and epsilon parameters
-% work best. We also may need to transpose some stuff here.
 function [x,fun_val]=gradient_method_backtracking(xSList, tSList, x0,s,alpha,beta,epsilon)
 % Gradient method with backtracking stepsize rule
 %
