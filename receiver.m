@@ -21,5 +21,6 @@ while strcmp(filename, 'quit') == 0 && strcmp(filename, '') == 0
     filename = input('Please enter the satellite file (e.g. sat1.txt) you would like analyzed:\n', 's');
 end
 fclose(fID);
+fclose('all'); %Sometimes it seems like fclose doesn't get the job done?
 
 

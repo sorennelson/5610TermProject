@@ -6,7 +6,7 @@ PI = 3.141592653589793116;
 for row=1:size(vehicles,1)
     NS = vehicles(row, 5);
     theta = NS * dmstorad(vehicles(row, 2), vehicles(row, 3), vehicles(row, 4));
-    
+    theta = theta + PI/2;
     EW = vehicles(row, 9);
     phi = EW * dmstorad(vehicles(row, 6), vehicles(row, 7), vehicles(row, 8));
     

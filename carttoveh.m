@@ -18,7 +18,8 @@ veh_params(1) = t;
 veh_params(10) = sqrt(x^2+y^2+z^2) - R;
 % Begin spherical coordinate conversion
 % theta - inclination -> psi_d psi_m psi_s NS
-theta = atan(sqrt(x^2+y^2)/z);
+theta = atan2(sqrt(x^2+y^2), z);
+theta = theta-PI/2;
 if (theta < 0)
     veh_params(5) = -1;
 else

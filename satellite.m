@@ -35,12 +35,12 @@ satcount = 0;
 % solve position and time of each satellite
 for veh=1:size(vehicles,1)
     fID = fopen(strcat(strcat('sat', int2str(veh)), '.txt'), 'w');
+    tV = vehicles(veh, 1);
+    xV = cart_vehicles(veh,:)';
     for i=1:24
         u = satellites(i,1:3)';
         v = satellites(i,4:6)';
         theta = satellites(i,9);
-        tV = vehicles(veh, 1);
-        xV = cart_vehicles(veh,:)';
         [tS, xS] = satellite_solve(u, v, theta, tV, xV);
         if (xS'*xV) >= R^2
             fprintf(fID, '%d %10.11f %f %f %f\n', i, tS, xS(1), xS(2), xS(3));
@@ -48,3 +48,4 @@ for veh=1:size(vehicles,1)
     end
     fclose(fID);
 end
+fclose('all'); %Sometimes it seems like fclose doesn't get the job done?
