@@ -31,6 +31,7 @@ veh_params(3) = thm;
 veh_params(4) = ths;
 % phi - azimuth -> lambda_d lambda_m lambda_s EW
 phi = atan2(y,x);
+phi = phi - PI;
 phi = phi - 2*PI*t/s;
 phi = atan2(sin(phi), cos(phi));
 if (phi < 0)
