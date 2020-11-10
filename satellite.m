@@ -1,5 +1,6 @@
 clear
-
+% Official satellite driver code for Math 5610 Group Projectat the
+% University of Utah
 % Load in data.dat
 T = readtable('./data.dat');
 T = table2array(T(:,1));

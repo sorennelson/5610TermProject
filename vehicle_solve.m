@@ -10,7 +10,7 @@ function [tV, xV] = vehicle_solve(xSList, tSList)
 % tV - double - expected receival time from satellites
 % xV - 3x1 double vector - expected position of the vehicle on receival, in cartesian coordinates
 c = 2.997924580000000000E+08;
-[xV, mini] = gradient_method_backtracking(xSList, tSList, xSList(1), ceil(min(tSList)), 0.5, 0.5, 10^-3);
+[xV, mini] = gradient_method_backtracking(xSList, tSList, xSList(1), max([ceil(min(tSList)) 1]), 0.5, 0.5, 10^-3);
 sz = size(xSList);
 tV = 0;
 % Get average tV from each satellite
